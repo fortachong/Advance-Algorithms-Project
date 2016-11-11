@@ -1,7 +1,17 @@
-#include<iostream>
-#include<cstring>
-#include<cstdlib>
+#include <iostream>
+#include <cstring>
+#include <cstdlib>
 #include <string>
+#include <vector>
+#include <fstream>
+#include <stdio.h>
+#include <fstream>
+#include <stdlib.h>
+#include <cctype>
+#include <math.h>
+#include <cmath>
+#include <sstream>
+#include <algorithm>
 
 #define NEITHER 0
 #define UP 1
