@@ -10,39 +10,17 @@
 #include <cctype>
 #include <math.h>
 #include <cmath>
+#include <sstream>
+
+
 
 using namespace std;
-
-/* char* lcs2(char *, char *);
-void lcs(char *, char *);
-
-int main()
-{
-  char x[] = "ABBDDBDGG";
-  char y[] = "GBDBAGB";
-
-
-  string result;
-
-  result = lcs2(x, y);
-
-  cout << "LCS using lcs2 function is : " << result;
-  cout << "\n";
-  cout << "LCS using lcs function is  : " ;
-  lcs(x, y);
-
-  return 0;
-}
-*/
-
-void printNeatly (vector<string> , int);
-int giveLines(int *, int, vector<string>, int);
+string pNgreedy(string, int);
+void printNeatly(vector<string>, int);
 
 int main() {
-
-    int M = 30;
-
-    ifstream mytextfile;
+    int n = 70;
+        ifstream mytextfile;
 
     try {
         mytextfile.open("testfile.txt");
@@ -57,50 +35,52 @@ int main() {
 
     }
 
-    string word;
-    for (int k = 0; k < M; k++){
-        cout << k % 10;
-    }
-    cout << "   | spaces" << endl;
-    cout << "<";
+    for (int i = 0; i < n; i++)
+	{
+		cout << i % 10;
+	}
+	cout << "  |  padding spaces" << endl;
+	cout << "<";
+	for (int i = 0; i < n - 2; i++)
+	{
+		cout << "-";
+	}
+	cout << ">  |" << endl;
 
-    for (int k = 0; k < M - 2; k++) {
-        cout << "-";
-    }
-    cout << ">  |" << endl;
-
-
-    vector<string> words;
+        vector<string> words;
+        string word;
     while (mytextfile >> word) {
-            cout << word << endl;
 
-        if (word.size() > M) {
-            cout << "Words are larger than the size of M " << endl;
-            cin.get();
-            return 1;
-
-        }
         words.push_back(word);
-        cout << int(words.size()) << endl;
+
     }
 
+    stringstream ss;
+    for (int i = 0; i <= words.size() - 1; i++) {
+            if (i != 0)
+            ss << " ";
+            ss << words[i];
+    }
+
+        string text = ss.str();
 
 
+     //cout << text << endl; //
+
+    cout << endl;
     cout << endl;
 
 
+    printNeatly(words, n);
+    
 
-    mytextfile.close();
-
-
-
-    printNeatly(words, M);
-
-
-
-    cout << "Press Enter to exit " << endl;
-    cin.get();
     return 0;
 
 
+
 }
+
+
+
+
+
