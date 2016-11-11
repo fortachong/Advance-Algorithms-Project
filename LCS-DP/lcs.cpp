@@ -1,7 +1,17 @@
-#include<iostream>
-#include<cstring>
-#include<cstdlib>
+#include <iostream>
+#include <cstring>
+#include <cstdlib>
 #include <string>
+#include <vector>
+#include <fstream>
+#include <stdio.h>
+#include <fstream>
+#include <stdlib.h>
+#include <cctype>
+#include <math.h>
+#include <cmath>
+#include <sstream>
+#include <algorithm>
 
 using namespace std;
 
@@ -10,7 +20,12 @@ void lcs( char *X, char *Y)
    int m = strlen(X);
    int n = strlen(Y);
 
-   int c[m+1][n+1];
+
+   int **c = new int*[(m + 1)*sizeof(int)];
+   for (int i = 0; i <= m; i++) {
+        c[i] = new int[(n + 1)*sizeof(int)];
+
+    }
 
 
    for (int i=0; i<=m; i++)
@@ -54,8 +69,16 @@ void lcs( char *X, char *Y)
    }
 
 
-   cout << "LCS of " << X << " and " << Y << " is " << lcs;
+    //cout << "LCS of " << X << " and " << Y << " is " << lcs;
+    cout << "LCS of X and Y is: " << lcs;
    cout << "\n";
    cout << "Length of LCS is " << c[m][n];
+
+   for (i = 0; i <= m; i++){
+        delete c[i];
+
+    }
+    delete [] c;
+
 
 }
