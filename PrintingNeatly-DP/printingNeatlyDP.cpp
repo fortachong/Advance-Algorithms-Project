@@ -84,15 +84,15 @@ int giveLines (int p[], int n, vector<string> words, int M) {
         int s  = 0; /* size */
         int wordsInLine = 0;
         for (i = p[n]; i <=n; i++) {
-            s += words[i + 1].size();
+            s += words[i - 1].size();
             cout << words[i - 1] << " ";
             wordsInLine++;
         }
         int spaces = M - s;
         if (wordsInLine > 1) {
-            spaces = spaces - (wordsInLine - 1);
+            spaces = abs(spaces - (wordsInLine - 1));
         }
-        cout << std::string(spaces, ' ') << " |  " << spaces << endl;
+        cout << string(spaces, ' ') << " | " << spaces << endl;
 
         return k;
 
